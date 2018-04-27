@@ -13891,7 +13891,7 @@ window.Vue = __webpack_require__(36);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(39));
+Vue.component('idea', __webpack_require__(39));
 
 var app = new Vue({
   el: '#app'
@@ -47173,7 +47173,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\ExampleComponent.vue"
+Component.options.__file = "resources\\assets\\js\\components\\Idea.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47182,9 +47182,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0ca92eac", Component.options)
+    hotAPI.createRecord("data-v-5db44d24", Component.options)
   } else {
-    hotAPI.reload("data-v-0ca92eac", Component.options)
+    hotAPI.reload("data-v-5db44d24", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47325,12 +47325,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 /* 42 */
@@ -47347,18 +47355,41 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
+    return _c("div", [
+      _c("h2", { staticClass: "text-center" }, [_vm._v("Captura tus ideas")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card card-body bg-light" }, [
+        _c("h4", [_vm._v("En que estas pensando?")]),
+        _vm._v(" "),
+        _c("form", [
+          _c("div", { staticClass: "input-group" }, [
+            _c("input", {
+              staticClass: "form-control input-sm",
+              attrs: { type: "text", maxlength: "256" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
+            _c("span", { staticClass: "input-group-append" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  attrs: { type: "submit" }
+                },
+                [_vm._v("Agregar")]
               )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list-unstyled" }, [
+          _c("li", [
+            _c("p", [
+              _c("small", { staticClass: "text-muted" }, [
+                _c("em", [_vm._v("Hace un minuto")])
+              ]),
+              _vm._v("\n                    Mi nueva idea\n                ")
             ])
           ])
         ])
@@ -47371,7 +47402,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0ca92eac", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-5db44d24", module.exports)
   }
 }
 
