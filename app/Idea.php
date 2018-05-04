@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Idea extends Model
 {
-    protected $fillable = ['description'];
+	
+    protected $fillable = [
+        'description'
+    ];
+
+    public function getSinceAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
 }

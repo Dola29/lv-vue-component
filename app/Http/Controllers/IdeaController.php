@@ -8,17 +8,19 @@ use App\Idea;
 
 class IdeaController extends Controller
 {
-    public function getIdeas(){
-        return Idea::orderBy('id', 'DESC')->get();
+    public function getIdeas()
+    {
+    	return Idea::orderBy('id', 'DESC')->get();
     }
 
-    public function store(Request $request){
-        $this->validate($request,[
-            'description ' => 'required'
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'description' => 'required'
         ]);
 
         Idea::create($request->all());
-
+        
         return;
     }
 }

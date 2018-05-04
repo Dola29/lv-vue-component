@@ -1,33 +1,70 @@
 <template>
-    <div>
-        <h2 class="text-center">Captura tus ideas</h2> 
-            <div class="card card-body bg-light">
-            <h4>En que estas pensando?</h4>
-            <form >
+    <div id="app">
+        <h2 class="text-center">Captura tus ideas</h2>
+        <div class="well">
+            <h4>¿En que estás pensando?</h4>
+            <form v-on:submit.prevent="createIdea">
                 <div class="input-group">
-                    <input type="text" class="form-control input-sm" maxlength="256">
-                    <span class="input-group-append">
-                        <button type="submit" class="btn btn-primary btn-sm">Agregar</button>
+                    <input type="text" class="form-control input-sm" v-model="newIdea" maxlength="256">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            Agregar
+                        </button>
                     </span>
-                </div>
-            </form>    
+                </div>        
+            </form>
             <hr>
             <ul class="list-unstyled">
-                <li>
+                <li v-for="idea in ideas">                    
                     <p>
-                        <small class="text-muted">
-                            <em>Hace un minuto</em>                                           
-                        </small>
-                        Mi nueva idea
+                        <small class="text-muted"><em>{{ since(idea.created_at) }}</em></small> 
+                        {{ idea.description }}
                     </p>
                 </li>
-            </ul>                         
-            </div>   
+            </ul>
         </div>
+    </div>
 </template>
 
 <script>
+    import axios  from 'axios'
+    import toastr from 'toastr'
+    import moment from 'moment'
+
+    moment.lang('es');
+    
     export default {
-        
+        data () {
+            return {
+                ideas : [],
+                newIdea: '',
+            }
+        },
+        created: function() {
+            this.getIdeas();
+        },
+        methods: {
+            since: function(d) {
+                return moment(d).fromNow();
+            },
+            getIdeas: function(page) {
+                var urlIdeas = 'mis-ideas';
+                axios.get(urlIdeas).then(response => {
+                    this.ideas = response.data
+                });
+            },
+            createIdea: function() {
+                var url = 'guardar-idea';
+                axios.post(url, {
+                    description: this.newIdea
+                }).then(response => {
+                    this.getIdeas();
+                    this.newIdea = '';
+                    toastr.success('Nueva idea registrada');
+                }).catch(error => {
+                    toastr.error('Error');
+                });
+            }
+        }
     }
 </script>
