@@ -1,3 +1,4 @@
+
 <template>
     <div id="app">
         <h2 class="text-center">Captura tus ideas</h2>
@@ -15,7 +16,7 @@
             </form>
             <hr>
             <ul class="list-unstyled">
-                <li v-for="idea in ideas">                    
+                <li v-for="idea in ideas">  
                     <p>
                         <small class="text-muted"><em>{{ since(idea.created_at) }}</em></small> 
                         {{ idea.description }}
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+
     import axios  from 'axios'
     import toastr from 'toastr'
     import moment from 'moment'
